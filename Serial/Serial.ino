@@ -1,8 +1,12 @@
+// HW12 files
 #include <ArduinoJson.h>
 
 int a0Val = 0;
 int a0Min = 5000;
 int a0Max = 0;
+
+bool isLightOn = LOW;
+int bluePin = 12;
 
 void sendData() {
   StaticJsonDocument<96> resJson;
@@ -22,6 +26,8 @@ void sendData() {
 void setup() {
   Serial.begin(9600);
   while (!Serial) {}
+
+  pinMode(bluePin, OUTPUT);
 }
 
 void loop() {
@@ -29,13 +35,29 @@ void loop() {
   a0Min = min(a0Min, a0Val);
   a0Max = max(a0Max, a0Val);
 
+  digitalWrite(bluePin, isLightOn);
+
   if (Serial.available() > 0) {
-    int byteIn = Serial.read();
-    if (byteIn == 0xAB) {
-      Serial.flush();
-      sendData();
+    String strIn = Serial.readStringUntil('\n');
+    Serial.println(strIn);
+    if (strIn == "on") {
+      Serial.println("turn on the light");
+      isLightOn = HIGH;  
+    }else if(strIn == "off") {
+      Serial.println("turn off the light");
+      isLightOn = LOW;
     }
+    else{
+      Serial.println("something else");
+    }
+    // Serial.print(Serial.read());
+    // if (byteIn == 0xAB) {
+    //   Serial.flush();
+    //   sendData();
+    // }
   }
+
+
 
   delay(2);
 }
