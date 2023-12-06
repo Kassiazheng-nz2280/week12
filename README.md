@@ -8,6 +8,12 @@ This is my envisioned final work, portraying how I anticipate its appearance. In
 ## System diagram
 ![未命名作品 100的副本2](https://github.com/Kassiazheng-nz2280/week12/assets/144282051/3844a6b2-7acc-4d23-9e9e-32296313344f)
 
+## Circuit diagram
+![未命名作品 100](https://github.com/Kassiazheng-nz2280/week12/assets/144282051/8b7df961-f928-452a-b2b5-360c52f05387)
+
+## FSM diagram
+![未命名作品 101](https://github.com/Kassiazheng-nz2280/week12/assets/144282051/c7da3372-4981-4fc5-939d-d38049f0dfe0)
+
 
 ## Board
 ![IMG_6085 2](https://github.com/Kassiazheng-nz2280/week12/assets/144282051/18387587-246d-4f64-99fe-c41b331d5730)
